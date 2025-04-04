@@ -1,29 +1,25 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { getAlbums } from "../services/AlbumsService"
 import Filtercomponent from "./Filtercomponent";
 import { Container, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import { AlbumInfo } from "../interface/AlbumsIntrface";
+import EmptyState from "../../../components/EmptyState/EmptyState";
 
 const Albums = () => {
 
   const [data, setData] = useState<AlbumInfo[]>([])
-  // const [dataYaconsultada, setConsultada] = useState<boolean>(true)
-  const [filters, setfilters] = useState<AlbumInfo>({})
-
+  const [dataConsultada, setConsultada] = useState<boolean>(false)
   const fetchAlbums = async (filters: AlbumInfo) => {
     const response = await getAlbums(filters);
     if (response && response.data) {
       setData(response.data);
+      setConsultada(true);
     }
   };
-
-  useEffect(() => {
-    fetchAlbums(filters)
-  }, [data])
-
+  const dataYaConsultada: boolean = (dataConsultada && data.length === 0); 
   return (
     <>
-      <Filtercomponent onClickButton={(data) => setfilters(data)} />
+      <Filtercomponent onClickButton={(data) => fetchAlbums(data)} />
       <Container maxWidth="xl">
         <Stack py={1}>
           {
@@ -49,8 +45,8 @@ const Albums = () => {
                 </Table>
               </TableContainer>
             :
-            <Stack height={"calc(100vh - 140px)"} border={"1px solid red"}>
-              <p>aaa</p>
+            <Stack height={"calc(100vh - 140px)"} >
+              <EmptyState type={!dataYaConsultada ? "empty" : "noResults"} />
             </Stack>
           }
         </Stack>
