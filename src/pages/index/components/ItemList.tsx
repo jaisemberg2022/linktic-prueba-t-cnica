@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { useState } from 'react';
 
-const StyledCard = styled(Card)({
+export const StyledCard = styled(Card)({
     transition: "transform .2s",
     height: "100%",
     display: "flex",

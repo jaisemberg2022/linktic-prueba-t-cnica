@@ -2,7 +2,7 @@ import { Container, Grid, Stack } from "@mui/material";
 import { RoutesName } from "../data/routesName";
 import ItemList from "./ItemList";
 
-const Index = () => {
+export const IndexPage = () => {
   return (
     <Container maxWidth="lg">
       <Stack pt={10} pb={4}>
@@ -32,4 +32,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default IndexPage;

@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom"
-import Index from "../pages/index/components/Index"
+import IndexPage from "../pages/index/components/IndexPage"
 import Albums from "../pages/albums/components/Albums"
 import Users from "../pages/users/components/Users"
 import Photos from "../pages/photos/components/Photos"
@@ -9,7 +9,7 @@ const AppRouter = () => {
   return (
     <Routes>
         <Route path="/*" element={<Navigate to="/Index"/>} />
-        <Route path="Index" element={<Index />} />
+        <Route path="Index" element={<IndexPage />} />
         <Route path="Users" element={<Users />} />
         <Route path="Albums" element={<Albums />} />
         <Route path="Photos" element={<Photos />} />
