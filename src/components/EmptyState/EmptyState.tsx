@@ -9,7 +9,7 @@ const EmptyState = (props: EmptyStateProps) => {
   } = props;
   const tipoImagen:string = type === "empty" ? "EmptyState" : "Box";
   return (
-    <Stack border="1px solid" borderColor="grey.300" flex={1} direction={"column"} justifyContent={"space-between"}>
+    <Stack border="1px solid" borderColor="grey.200" flex={1} direction={"column"} justifyContent={"space-between"}>
       <Stack height="80%" sx={{
         backgroundImage: `url('src/assets/images/${tipoImagen}.svg')`,
         backgroundSize: "contain",
