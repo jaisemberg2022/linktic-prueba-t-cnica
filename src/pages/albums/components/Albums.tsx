@@ -16,24 +16,26 @@ const Albums = () => {
       setConsultada(true);
     }
   };
-  const dataYaConsultada: boolean = (dataConsultada && data.length === 0); 
+  const dataYaConsultada: boolean = (dataConsultada && data.length === 0);
   return (
     <>
       <Filtercomponent onClickButton={(data) => fetchAlbums(data)} />
       <Container maxWidth="xl">
         <Stack py={1}>
           {
-            data.length > 0 ? 
+            data.length > 0 ?
               <TableContainer component={Paper} sx={{ maxHeight: "calc(100vh - 140px)" }}>
                 <Table size="small">
                   <TableHead>
-                    <TableCell align="center">UserId</TableCell>
-                    <TableCell align="center">Id</TableCell>
-                    <TableCell align="center">Title</TableCell>
+                    <TableRow>
+                      <TableCell align="center">UserId</TableCell>
+                      <TableCell align="center">Id</TableCell>
+                      <TableCell align="center">Title</TableCell>
+                    </TableRow>
                   </TableHead>
                   <TableBody>
                     {
-                      data.map((data,index) => (
+                      data.map((data, index) => (
                         <TableRow key={index} >
                           <TableCell align="center">{data.userId}</TableCell>
                           <TableCell align="center">{data.id}</TableCell>
@@ -44,10 +46,10 @@ const Albums = () => {
                   </TableBody>
                 </Table>
               </TableContainer>
-            :
-            <Stack height={"calc(100vh - 140px)"} >
-              <EmptyState type={!dataYaConsultada ? "empty" : "noResults"} />
-            </Stack>
+              :
+              <Stack height={"calc(100vh - 140px)"} >
+                <EmptyState type={!dataYaConsultada ? "empty" : "noResults"} />
+              </Stack>
           }
         </Stack>
       </Container>
