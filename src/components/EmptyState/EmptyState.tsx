@@ -6,12 +6,18 @@ const EmptyState = (props: EmptyStateProps) => {
     type = "empty",
     subtitle = "",
     title = "",
+    url,
+    extraComponent,
   } = props;
   const tipoImagen:string = type === "empty" ? "EmptyState" : "Box";
+  const imagenPorDefecto:string = `url('src/assets/images/${tipoImagen}.svg')`
+  const imagenFinal: string = url ? `url(${url})` : imagenPorDefecto
+
+  console.log(imagenFinal)
   return (
-    <Stack border="1px solid" borderColor="grey.200" flex={1} direction={"column"} justifyContent={"space-between"}>
+    <Stack height="100%" border="1px solid" borderColor="grey.200" flex={1} direction={"column"} justifyContent={"space-between"}>
       <Stack height="80%" sx={{
-        backgroundImage: `url('src/assets/images/${tipoImagen}.svg')`,
+        backgroundImage: imagenFinal,
         backgroundSize: "contain",
         backgroundRepeat:"no-repeat",
         backgroundPosition:"center"
@@ -29,6 +35,9 @@ const EmptyState = (props: EmptyStateProps) => {
             subtitle.length > 0 ? subtitle : (type === "empty" ? "!Utiliza los filtros para consultar informacion¡" : "!No existe informacion relacionada con los filtros ingresados¡")
           }
         </Typography>
+          {
+            extraComponent && extraComponent
+          }
       </Stack>
     </Stack>
   )
