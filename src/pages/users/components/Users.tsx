@@ -1,6 +1,8 @@
+import InProgresState from "../../../components/InProgresState/InProgresState"
+
 const Users = () => {
   return (
-    <div>Users</div>
+    <InProgresState />
   )
 }
 

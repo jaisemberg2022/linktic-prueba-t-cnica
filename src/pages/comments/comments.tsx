@@ -1,7 +1,8 @@
+import InProgresState from "../../components/InProgresState/InProgresState"
 
 const Comments = () => {
   return (
-    <div>Comments</div>
+    <InProgresState />
   )
 }
 
