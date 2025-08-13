@@ -18,7 +18,7 @@ const InProgresState = () => {
             <EmptyState
                 title='!Pagina en desarrollo¡'
                 subtitle='Estamos trabajando para mejorar esta sección. ¡Vuelve pronto!'
-                url='public/assets/images/buildIdea.avif'
+                url='/assets/images/buildIdea.avif'
                 extraComponent={
                     <Stack py={2}>
                         <Button variant='contained' color='primary' size='small' onClick={redirect}>Volver</Button>
