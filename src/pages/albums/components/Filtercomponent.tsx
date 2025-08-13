@@ -20,7 +20,7 @@ const Filtercomponent = (props: FiltercomponentProps) => {
   }
 
   return (
-    <Stack flex={1} mt={6} py={2} direction="row" justifyContent="end">
+    <Stack flex={1} mt={9} py={2} direction="row" justifyContent="end">
       <Stack flexWrap="wrap" px={1} gap={1} direction="row" alignItems="center">
         <TextField slotProps={{
             htmlInput: {

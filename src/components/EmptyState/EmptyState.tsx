@@ -10,7 +10,7 @@ const EmptyState = (props: EmptyStateProps) => {
     extraComponent,
   } = props;
   const tipoImagen:string = type === "empty" ? "EmptyState" : "Box";
-  const imagenPorDefecto:string = `url('src/assets/images/${tipoImagen}.svg')`
+  const imagenPorDefecto:string = `url('public/assets/images/${tipoImagen}.svg')`
   const imagenFinal: string = url ? `url(${url})` : imagenPorDefecto
 
   console.log(imagenFinal)
